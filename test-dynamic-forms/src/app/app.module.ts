@@ -6,10 +6,14 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TransportationCreateOrEditComponent } from './transportation-create-or-edit/transportation-create-or-edit.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransportationCreateOrEditComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
