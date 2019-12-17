@@ -2,74 +2,85 @@
   <div class="row">
 
     <div class="col-md-12 order-md-1">
-      <h4 class="mb-3">Transportation Dynamic Forms</h4>
+      <div>
+        <tabset>
+          <tab heading="Basic title" id="tab1">Basic content</tab>
+          <tab heading="Basic Title 1">Basic content 1</tab>
+          <tab heading="Transportation">
 
-      <form class="needs-validation" [formGroup]="transportationForm" (ngSubmit)="onTransSubmit()">
+            <form class="needs-validation" [formGroup]="transportationForm" (ngSubmit)="onTransSubmit()">
 
-        <div formArrayName="packageTransportation"
-          *ngFor="let pt of transportationForm.get('packageTransportation').controls;let i = index">
-          <div [formGroupName]="i">
-            <div class="row">
+              <div formArrayName="packageTransportation"
+                *ngFor="let pt of transportationForm.get('packageTransportation').controls;let i = index">
+                <div [formGroupName]="i">
+                  <div class="row">
 
-              <div class="col-md-2 mb-3">
-                <label for="transType">Transportation Type</label>
-                <select class="custom-select d-block w-100" id="transType" formControlName="transType">
-                  <option value="" [selected]="true">Choose...</option>
-                  <option *ngFor="let transType of transportationTypes;let t = index" value="{{t}}">{{transType}}
-                  </option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Transportation Type.
+                    <div class="col-md-2 mb-3">
+                      <label for="transType">Transportation Type</label>
+                      <select class="custom-select d-block w-100" id="transType" formControlName="transType">
+                        <option value="" [selected]="true">Choose...</option>
+                        <option *ngFor="let transType of transportationTypes;let t = index" value="{{t}}">{{transType}}
+                        </option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid Transportation Type.
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                      <label for="busTypes">Bus Type</label>
+                      <select class="custom-select d-block w-100" id="busTypes" formControlName="busTypes">
+                        <option value="" [selected]="true">Choose...</option>
+                        <option *ngFor="let busType of busTypes;let b = index" value="{{b}}">{{busType}}
+                        </option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid Bus Type.
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <label for="departureCity">Departure City</label>
+                      <select class="custom-select d-block w-100" id="departureCity" formControlName="departureCity">
+                        <option value="" [selected]="true">Choose...</option>
+                        <option *ngFor="let depCity of cities;let dc = index" value="{{dc}}">{{depCity}}
+                        </option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid Bus Type.
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <label for="arrivalCity">Arrival City</label>
+                      <select class="custom-select d-block w-100" id="arrivalCity" formControlName="arrivalCity">
+                        <option value="" [selected]="true">Choose...</option>
+                        <option *ngFor="let arrCity of cities;let ac = index" value="{{ac}}">{{arrCity}}
+                        </option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid Bus Type.
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-2 mb-3">
+                      <button type="button" class="btn btn-primary inlinebtn" (click)="addPkTrans()">Add</button>
+                      <button type="button" class="btn btn-danger inlinebtn" (click)="deletePkTrans(i)"
+                        *ngIf="transportationForm.get('packageTransportation').controls.length > 1">delete</button>
+                    </div>
+
+                  </div>
                 </div>
               </div>
 
-              <div class="col-md-2 mb-3">
-                <label for="busTypes">Bus Type</label>
-                <select class="custom-select d-block w-100" id="busTypes" formControlName="busTypes">
-                  <option value="" [selected]="true">Choose...</option>
-                  <option *ngFor="let busType of busTypes;let b = index" value="{{b}}">{{busType}}
-                  </option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Bus Type.
-                </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <label for="departureCity">Departure City</label>
-                <select class="custom-select d-block w-100" id="departureCity" formControlName="departureCity">
-                  <option value="" [selected]="true">Choose...</option>
-                  <option *ngFor="let depCity of cities;let dc = index" value="{{dc}}">{{depCity}}
-                  </option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Bus Type.
-                </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <label for="arrivalCity">Arrival City</label>
-                <select class="custom-select d-block w-100" id="arrivalCity" formControlName="arrivalCity">
-                  <option value="" [selected]="true">Choose...</option>
-                  <option *ngFor="let arrCity of cities;let ac = index" value="{{ac}}">{{arrCity}}
-                  </option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Bus Type.
-                </div>
-              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+          </tab>
+        </tabset>
+      </div>
 
 
-              <div class="col-md-2 mb-3">
-                <button type="button" class="btn btn-primary" (click)="addPkTrans()">Add</button>
-                <button type="button" class="btn btn-danger" (click)="deletePkTrans(i)" *ngIf="transportationForm.get('packageTransportation').controls.length > 1">delete</button>
-              </div>
 
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-      </form>
 
     </div>
 
