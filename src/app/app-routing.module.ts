@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: TransportationCreateOrEditComponent },
   { path: 'package', component: TransportationCreateOrEditComponent },
   { path: 'package/:id', component: TransportationCreateOrEditComponent },
   { path: '**', component: PageNotFoundComponent }
