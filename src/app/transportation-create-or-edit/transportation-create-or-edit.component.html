@@ -10,7 +10,7 @@
             <form class="needs-validation" [formGroup]="transportationForm" (ngSubmit)="onTransSubmit()">
 
               <div formArrayName="packageTransportation"
-                *ngFor="let pt of transportationForm.get('packageTransportation').controls;let i = index">
+                *ngFor="let pt of transportationForm.get('packageTransportation')['controls'];let i = index">
                 <div [formGroupName]="i">
                   <div class="row">
 
@@ -18,7 +18,7 @@
                       <label for="transType">Transportation Type</label>
                       <select class="custom-select d-block w-100" formControlName="transType">
                         <option value=""
-                          [selected]="transportationForm.get('packageTransportation').controls[i].get('transType')==''">
+                          [selected]="transportationForm.get('packageTransportation')['controls'][i].get('transType')==''">
                           Choose...</option>
                         <option *ngFor="let transType of transportationTypesArr;let t = index" value="{{t}}">
                           {{transType}}
@@ -33,7 +33,7 @@
                       <label for="busTypes">Bus Type</label>
                       <select class="custom-select d-block w-100" formControlName="busTypes">
                         <option value=""
-                          [selected]="transportationForm.get('packageTransportation').controls[i].get('busTypes')==''">
+                          [selected]="transportationForm.get('packageTransportation')['controls'][i].get('busTypes')==''">
                           Choose...</option>
                         <option *ngFor="let busType of busTypesArr;let b = index" value="{{b}}">{{busType}}
                         </option>
@@ -46,7 +46,7 @@
                       <label for="departureCity">Departure City</label>
                       <select class="custom-select d-block w-100" formControlName="departureCity">
                         <option value=""
-                          [selected]="transportationForm.get('packageTransportation').controls[i].get('departureCity')==''">
+                          [selected]="transportationForm.get('packageTransportation')['controls'][i].get('departureCity')==''">
                           Choose...</option>
                         <option *ngFor="let depCity of citiesArr;let dc = index" value="{{dc}}">{{depCity}}
                         </option>
@@ -59,7 +59,7 @@
                       <label for="arrivalCity">Arrival City</label>
                       <select class="custom-select d-block w-100" formControlName="arrivalCity">
                         <option value=""
-                          [selected]="transportationForm.get('packageTransportation').controls[i].get('arrivalCity')==''">
+                          [selected]="transportationForm.get('packageTransportation')['controls'][i].get('arrivalCity')==''">
                           Choose...</option>
                         <option *ngFor="let arrCity of citiesArr;let ac = index" value="{{ac}}">{{arrCity}}
                         </option>
@@ -73,7 +73,7 @@
                     <div class="col-md-2 mb-3">
                       <button type="button" class="btn btn-primary inlinebtn" (click)="addPkTrans()">Add</button>
                       <button type="button" class="btn btn-danger inlinebtn" (click)="deletePkTrans(i)"
-                        *ngIf="transportationForm.get('packageTransportation').controls.length > 1">delete</button>
+                        *ngIf="transportationForm.get('packageTransportation')['controls'].length > 1">delete</button>
                     </div>
 
                   </div>
